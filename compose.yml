@@ -1,0 +1,7 @@
+services:
+  arianeweb-mcp:
+    build: .
+    stdin_open: true
+    tty: false
+    environment:
+      - NODE_ENV=production

@@ -1,0 +1,32 @@
+{
+  "name": "arianeweb-mcp",
+  "version": "0.1.0",
+  "description": "Serveur MCP pour la jurisprudence administrative française (ArianeWeb / Conseil d'État)",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "arianeweb-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "vitest run tests/clients/"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "cheerio": "^1.0.0",
+    "pdf-parse": "^2.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "MIT"
+}
