@@ -13,7 +13,8 @@
     "start": "node dist/index.js",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:integration": "vitest run tests/clients/"
+    "test:integration": "vitest run tests/clients/",
+    "build:mcpb": "bash scripts/build-mcpb.sh"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "esbuild": "^0.25.0",
     "typescript": "^5.0.0",
     "vitest": "^4.0.0"
   },

@@ -4,3 +4,5 @@ project.md
 updates.md
 node_modules/
 dist/
+mcpb-staging/
+*.mcpb

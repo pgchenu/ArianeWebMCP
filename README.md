@@ -32,19 +32,19 @@ Une fois configuré, votre assistant peut :
 
 ## Installation
 
-### Prérequis : Docker
+### Méthode 1 : Desktop Extension (recommandé pour Claude Desktop)
 
-La méthode recommandée utilise **Docker**. Si Docker n'est pas installé sur votre machine :
+La méthode la plus simple — un seul fichier, installation en un clic :
 
-- **macOS / Windows** → [Télécharger Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- **Linux** → [Installer Docker Engine](https://docs.docker.com/engine/install/)
+1. Téléchargez le fichier `arianeweb-mcp.mcpb` depuis la [page Releases](https://github.com/pgchenu/ArianeWebMCP/releases)
+2. Dans Claude Desktop, allez dans **Developer → Extensions → Install Extension**
+3. Sélectionnez le fichier `.mcpb` téléchargé
 
-Vérifiez que Docker fonctionne :
-```bash
-docker --version
-```
+C'est tout. Les 4 outils apparaissent immédiatement dans Claude Desktop.
 
-### 1. Construire l'image
+### Méthode 2 : Docker
+
+Pour les autres clients MCP (Cursor, Continue, etc.) ou si vous préférez Docker :
 
 ```bash
 git clone https://github.com/pgchenu/ArianeWebMCP.git
@@ -52,15 +52,7 @@ cd ArianeWebMCP
 docker build -t arianeweb-mcp .
 ```
 
-### 2. Configurer votre client MCP
-
-#### Claude Desktop
-
-Ouvrez le fichier de configuration de Claude Desktop :
-- **macOS** : `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows** : `%APPDATA%\Claude\claude_desktop_config.json`
-
-Ajoutez le bloc suivant :
+Configuration Claude Desktop (`~/Library/Application Support/Claude/claude_desktop_config.json` sur macOS, `%APPDATA%\Claude\claude_desktop_config.json` sur Windows) :
 
 ```json
 {
@@ -73,21 +65,15 @@ Ajoutez le bloc suivant :
 }
 ```
 
-Redémarrez Claude Desktop. L'outil apparaît dans le menu des intégrations.
-
 #### Autres clients MCP
 
-Tout client compatible MCP (Cursor, Continue, etc.) peut utiliser la même commande :
+Tout client compatible MCP peut utiliser la même commande :
 
 ```
 docker run --rm -i arianeweb-mcp
 ```
 
----
-
-## Alternatives sans Docker
-
-### Avec Node.js (développement)
+### Méthode 3 : Node.js (développement)
 
 Nécessite Node.js 20+ et npm.
 
@@ -177,6 +163,7 @@ npm run build              # Compilation TypeScript
 npm test                   # Tous les tests (76 tests)
 npm run test:watch         # Mode watch
 npm run test:integration   # Tests d'intégration uniquement (réseau réel)
+npm run build:mcpb         # Génère le fichier arianeweb-mcp.mcpb (Desktop Extension)
 ```
 
 Pour la documentation technique détaillée :

@@ -1,0 +1,49 @@
+{
+  "manifest_version": "0.3",
+  "name": "arianeweb-mcp",
+  "display_name": "ArianeWeb — Jurisprudence Administrative",
+  "version": "0.1.0",
+  "description": "Accédez à la jurisprudence administrative française (Conseil d'État, CAA, TA) depuis Claude. Recherche de décisions, texte intégral, conclusions des rapporteurs publics et analyses jurisprudentielles.",
+  "author": {
+    "name": "pgche"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pgche/ArianeWebMCP"
+  },
+  "support": "https://github.com/pgche/ArianeWebMCP/issues",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"]
+    }
+  },
+  "tools": [
+    {
+      "name": "search_decisions",
+      "description": "Recherche des décisions de juridictions administratives françaises par mots-clés, dates ou numéro d'affaire."
+    },
+    {
+      "name": "get_decision",
+      "description": "Récupère le texte intégral d'une décision par son identifiant."
+    },
+    {
+      "name": "get_conclusions",
+      "description": "Récupère les conclusions du rapporteur public pour une décision du Conseil d'État."
+    },
+    {
+      "name": "get_decision_analysis",
+      "description": "Récupère l'analyse jurisprudentielle d'une décision fichée A ou B."
+    }
+  ],
+  "keywords": ["jurisprudence", "droit-administratif", "conseil-etat", "arianeweb", "france"],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  }
+}
